@@ -1,0 +1,14 @@
+/* ==========================================================================
+   professional-details.html — estilos específicos da página profissional
+   A base (.details-container, .tech-grid, .tech-item...) fica em style.css
+   ========================================================================== */
+
+/* Ícones da stack técnica em cinza escuro */
+.tech-item i {
+    color: #222;
+}
+
+/* Botão "Voltar ao início" */
+.details-info .btn {
+    margin-top: 40px;
+}

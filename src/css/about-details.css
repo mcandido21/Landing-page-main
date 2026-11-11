@@ -1,0 +1,14 @@
+/* ==========================================================================
+   about-details.html — estilos específicos da página "Sobre mim"
+   A base (.details-container, .details-img, .details-info...) fica em style.css
+   ========================================================================== */
+
+/* Centraliza verticalmente a foto e o bloco de texto */
+.details-container {
+    align-items: center;
+}
+
+/* Botão "Voltar para a homepage" */
+.details-info .btn {
+    margin-top: 20px;
+}
