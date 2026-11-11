@@ -25,7 +25,11 @@ export default function ProfessionalPage() {
                 <img src={skillsImage} alt="Mário Cândido em contexto profissional" className="details-img" />
                 <div className="details-info">
                     <h2>{t('details.prof.title')}</h2>
-                    <p>{t('details.prof.p1')}</p>
+                    <p>
+                        {t('details.prof.p1.before')}{' '}
+                        <strong>{t('details.prof.p1.highlight')}</strong>
+                        {t('details.prof.p1.after')}
+                    </p>
                     <p>{t('details.prof.p2')}</p>
 
                     <section className="tech-stack-section">

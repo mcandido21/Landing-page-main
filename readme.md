@@ -17,6 +17,8 @@ npm run dev
 Para validar a versão de produção:
 
 ```bash
+npm run lint
+npm test
 npm run build
 npm run preview
 ```
@@ -26,21 +28,23 @@ npm run preview
 - `/` — página principal, projetos e contato
 - `/about` — informações pessoais
 - `/professional` — trajetória e tecnologias
-- `/success` — confirmação visual do formulário
 
 O idioma pode ser alternado entre português, inglês e espanhol; a preferência fica salva no navegador.
 
 ## Formulário
 
-O formulário valida os campos no navegador e exibe a página de confirmação, mas ainda não envia os dados para um servidor ou serviço de e-mail. Para envio real, conecte-o a uma API e valide os dados também no backend.
+O formulário valida os campos no navegador, mas ainda não envia dados para um servidor ou serviço de e-mail. Após a submissão, informa claramente que é demonstrativo e que a mensagem não foi enviada. Para envio real, conecte-o a uma API e valide os dados também no backend.
 
 ## Estrutura
 
 ```text
 Landing-page-main/
 ├── index.html
+├── eslint.config.js
 ├── package.json
 ├── readme.md
+├── README-ESTRUTURA.md
+├── vite.config.js
 └── src/
     ├── App.jsx
     ├── main.jsx
@@ -51,5 +55,10 @@ Landing-page-main/
     ├── css/
     ├── hooks/
     ├── i18n/
-    └── pages/
+    ├── pages/
+    │   └── __tests__/
+    │       ├── HomePage.test.jsx
+    │       └── ProfessionalPage.test.jsx
+    └── test/
+        └── setup.js
 ```

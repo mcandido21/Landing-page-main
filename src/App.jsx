@@ -4,13 +4,11 @@ import { useLanguage } from './context/LanguageContext.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import ProfessionalPage from './pages/ProfessionalPage.jsx';
-import SuccessPage from './pages/SuccessPage.jsx';
 
 const titleKeys = {
     '/': 'meta.index.title',
     '/about': 'meta.about.title',
-    '/professional': 'meta.professional.title',
-    '/success': 'meta.success.title'
+    '/professional': 'meta.professional.title'
 };
 
 export default function App() {
@@ -30,7 +28,6 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/professional" element={<ProfessionalPage />} />
-            <Route path="/success" element={<SuccessPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
     );

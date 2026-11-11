@@ -12,6 +12,7 @@ Landing-page-main/
 ├── package.json
 ├── package-lock.json
 ├── vite.config.js
+├── eslint.config.js
 ├── readme.md
 ├── README-ESTRUTURA.md
 └── src/
@@ -29,17 +30,20 @@ Landing-page-main/
     ├── css/
     │   ├── about-details.css
     │   ├── professional-details.css
-    │   ├── style.css
-    │   └── success.css
+    │   └── style.css
     ├── hooks/
     │   └── useReveal.js
     ├── i18n/
     │   └── translations.js
-    └── pages/
+    ├── pages/
         ├── AboutPage.jsx
         ├── HomePage.jsx
         ├── ProfessionalPage.jsx
-        └── SuccessPage.jsx
+        └── __tests__/
+            ├── HomePage.test.jsx
+            └── ProfessionalPage.test.jsx
+    └── test/
+        └── setup.js
 ```
 
 `node_modules/` contém dependências instaladas e `dist/` é gerado pelo build. Ambos são ignorados pelo Git e não devem ser editados manualmente.
@@ -57,6 +61,9 @@ Landing-page-main/
 - `npm run dev`: inicia o servidor local do Vite.
 - `npm run build`: compila a aplicação para `dist/`.
 - `npm run preview`: serve localmente a compilação para conferência.
+- `npm run lint`: verifica o código com ESLint.
+- `npm test`: executa os testes uma vez com Vitest.
+- `npm run test:watch`: inicia o Vitest em modo interativo.
 
 `package-lock.json` registra as versões resolvidas das dependências para instalações reproduzíveis. Ao alterar dependências, atualize-o com o npm e mantenha os dois arquivos no controle de versão.
 
@@ -83,12 +90,11 @@ Define as rotas com React Router:
 | `/` | `HomePage` | Apresentação, habilidades, projetos e contato |
 | `/about` | `AboutPage` | Informações pessoais e interesses |
 | `/professional` | `ProfessionalPage` | Trajetória profissional e tecnologias |
-| `/success` | `SuccessPage` | Confirmação visual após o envio do formulário |
 | Qualquer outra URL | Redirecionamento para `/` | Evita deixar uma rota desconhecida sem conteúdo |
 
 O componente também atualiza o título do documento conforme a rota e atualiza o conteúdo da meta description usando a tradução selecionada.
 
-Como a navegação usa `BrowserRouter`, o ambiente de produção deve encaminhar URLs desconhecidas ao `index.html` da SPA. Isso permite abrir ou atualizar diretamente `/about`, `/professional` e `/success`.
+Como a navegação usa `BrowserRouter`, o ambiente de produção deve encaminhar URLs desconhecidas ao `index.html` da SPA. Isso permite abrir ou atualizar diretamente `/about` e `/professional`.
 
 ## Páginas
 
@@ -100,7 +106,7 @@ Monta a página principal e suas seções. Cada seção é um componente local a
 - **About**: resumo pessoal e profissional; os botões navegam para `/about` e `/professional`.
 - **Skills**: renderiza os cartões de tecnologias definidos no array `skills`.
 - **Projects**: renderiza três cartões; os títulos e descrições são obtidos das chaves `projects.*` do arquivo de traduções.
-- **Contact**: formulário com rótulos acessíveis, campos obrigatórios e validação nativa do navegador. Ao submeter dados válidos, navega para `/success`.
+- **Contact**: formulário com rótulos acessíveis, campos obrigatórios e validação nativa do navegador. Ao submeter dados válidos, mostra uma mensagem acessível explicando que o formulário é demonstrativo e que a mensagem não foi enviada.
 
 Os cartões com classe `reveal` usam o hook `useReveal` para aparecer quando entram na área visível.
 
@@ -112,11 +118,7 @@ Página de detalhes pessoais. Carrega `about.jpeg` como asset processado pelo Vi
 
 Página sobre trajetória e tecnologias. Carrega `skills.jpeg`, usa um array local `technologies` para renderizar os ícones e nomes e retorna à página inicial por meio do React Router.
 
-### `src/pages/SuccessPage.jsx`
-
-Página de confirmação apresentada após a submissão do formulário. Inclui um seletor de idioma flutuante, a mensagem traduzida e o link de retorno à página principal.
-
-**Limite atual do formulário:** a submissão não envia dados a um servidor ou serviço de e-mail. A navegação para `/success` é apenas uma confirmação visual. Para receber mensagens, será necessário implementar ou integrar uma API e validar os dados no servidor.
+**Limite atual do formulário:** a submissão não envia dados a um servidor ou serviço de e-mail. A interface informa explicitamente que não houve envio e recomenda os canais de contato já disponíveis na página. Para receber mensagens pelo formulário, será necessário implementar ou integrar uma API e validar os dados no servidor.
 
 ## Componentes compartilhados
 
@@ -131,7 +133,7 @@ Renderiza a barra de navegação usada na página inicial e nas páginas interna
 
 ### `src/components/LanguageSwitcher.jsx`
 
-Apresenta os botões PT, EN e ES. A propriedade `floating` aplica a posição flutuante usada na página de confirmação. O idioma ativo é indicado por classe visual e pelo atributo acessível `aria-pressed`.
+Apresenta os botões PT, EN e ES. O idioma ativo é indicado por classe visual e pelo atributo acessível `aria-pressed`.
 
 ## Idiomas
 
@@ -143,6 +145,8 @@ Exporta:
 - `translations`: dicionários com textos identificados por chaves, como `hero.title`, `contact.email.label` e `details.about.p1`.
 
 Os componentes não escolhem textos diretamente por idioma; eles solicitam uma chave pela função `t`. Para editar conteúdo traduzido, altere a mesma chave nos três dicionários. Para acrescentar um idioma, adicione seus metadados em `LANGS` e traduza as chaves correspondentes em `translations`.
+
+O destaque no primeiro parágrafo profissional usa as chaves `details.prof.p1.before`, `details.prof.p1.highlight` e `details.prof.p1.after`. A marcação `<strong>` fica no JSX, não nos textos de tradução, evitando interpretar HTML vindo do dicionário.
 
 ### `src/context/LanguageContext.jsx`
 
@@ -166,9 +170,7 @@ Folha global da aplicação. Reúne reset, tipografia e container, navegação, 
 
 - `src/css/about-details.css`: ajustes exclusivos do layout da página pessoal.
 - `src/css/professional-details.css`: ajustes dos ícones e botão da página profissional.
-- `src/css/success.css`: cartão, ícone e animação da página de confirmação.
-
-Os estilos globais e os estilos das páginas de detalhes são importados em `src/main.jsx`. O estilo de sucesso é importado diretamente em `SuccessPage.jsx`.
+Os estilos globais e os estilos das páginas de detalhes são importados em `src/main.jsx`.
 
 ### `src/assets/images/`
 
@@ -193,9 +195,9 @@ Contém as imagens usadas pelas páginas de detalhes. Elas são importadas pelos
 
 1. O navegador valida campos `required` e o formato do e-mail.
 2. Se a validação passar, `handleSubmit` impede o envio HTML padrão.
-3. A aplicação navega para `/success`.
+3. A página apresenta uma mensagem de status explicando que não houve envio.
 
-Esse fluxo é somente de interface: os valores não são enviados nem armazenados.
+Esse fluxo é somente de interface: os valores não são enviados nem armazenados. A mensagem não deve ser interpretada como confirmação de entrega.
 
 ## Orientações para manutenção
 
@@ -220,8 +222,10 @@ Os nomes dos cartões de habilidades estão no array `skills` em `HomePage.jsx`;
 ```bash
 npm install
 npm run dev
+npm run lint
+npm test
 npm run build
 npm run preview
 ```
 
-O projeto não possui atualmente um comando de testes automatizados configurado. O build de produção verifica a compilação do JSX, a resolução dos módulos e a geração dos assets.
+`npm run lint` executa ESLint. `npm test` executa os testes de formulário e da página profissional uma vez; `npm run test:watch` inicia o modo interativo do Vitest. O build verifica a compilação do JSX, a resolução dos módulos e a geração dos assets.

@@ -21,7 +21,6 @@ export const translations = {
             'meta.index.desc': 'Portfólio de desenvolvedor Front-End. Desenvolvedor HTML, CSS, JavaScript e React.',
             'meta.about.title': 'Sobre mim | Mais Insights',
             'meta.professional.title': 'Trajetória Profissional | Full-Stack',
-            'meta.success.title': 'Mensagem enviada com sucesso | Mário Cândido',
 
             'hero.title': 'Desenvolvedor Front-End',
             'hero.text': 'Construindo softwares de forma responsiva, ágil e amigável ao usuário.',
@@ -54,6 +53,7 @@ export const translations = {
             'contact.message.label': 'Deixe sua mensagem',
             'contact.message.ph': 'Sua mensagem',
             'contact.submit': 'Enviar',
+            'contact.demoNotice': 'Este formulário é demonstrativo: sua mensagem não foi enviada. Para entrar em contato, use um dos canais abaixo.',
 
             'details.about.title': 'Insights pessoais',
             'details.about.p1': 'Além da minha rotina profissional na área de tecnologia, acredito que o aprendizado contínuo e a manutenção de atividades criativas são fundamentais para resolver problemas complexos de forma eficiente.',
@@ -62,15 +62,14 @@ export const translations = {
             'details.about.btn': 'Voltar para a homepage',
 
             'details.prof.title': 'Desenvolvedor Full-Stack e Oficial de Polícia Civil',
-            'details.prof.p1': 'Minha trajetória profissional é marcada por uma sólida experiência técnica aliada a um alto nível de comprometimento. Atualmente, atuo como <strong>Especialista Full Stack de TI na infraestrutura da Polícia Civil</strong>, projetando sistemas robustos, processando fluxos de dados críticos e gerenciando soluções técnicas seguras.',
+            'details.prof.p1.before': 'Minha trajetória profissional é marcada por uma sólida experiência técnica aliada a um alto nível de comprometimento. Atualmente, atuo como',
+            'details.prof.p1.highlight': 'Especialista Full Stack de TI na infraestrutura da Polícia Civil',
+            'details.prof.p1.after': ', projetando sistemas robustos, processando fluxos de dados críticos e gerenciando soluções técnicas seguras.',
             'details.prof.p2': 'Essa experiência única, atuando tanto na área de engenharia de software quanto no serviço público, proporciona uma disciplina diferenciada, capacidade de avaliação de riscos e foco constante em segurança, estabilidade e documentação de qualidade. Consigo conectar de forma eficiente a experiência do usuário no front-end com a robustez e confiabilidade das soluções no back-end.',
             'details.prof.stack.title': 'Stack Técnica Principal',
             'details.prof.stack.text': 'Aqui estão as tecnologias que utilizo diariamente para desenvolver aplicações completas, do início ao fim (end-to-end):',
             'details.prof.btn': 'Voltar ao início',
 
-            'success.title': 'Obrigado!',
-            'success.text': 'Sua mensagem foi enviada com sucesso. <br>Entrarei em contato o mais breve possível.',
-            'success.btn': 'Voltar ao Portfólio'
         },
 
         /* ---------------------------------------------------------- EN */
@@ -88,7 +87,6 @@ export const translations = {
             'meta.index.desc': 'Front-End Developer portfolio. HTML, CSS, JavaScript and React developer.',
             'meta.about.title': 'About me | More Insights',
             'meta.professional.title': 'Professional Background | Full-Stack',
-            'meta.success.title': 'Message Sent Successfully | Mário Cândido',
 
             'hero.title': 'Front-End Developer',
             'hero.text': 'Building responsive, fast and user-friendly software.',
@@ -121,6 +119,7 @@ export const translations = {
             'contact.message.label': 'Leave your message',
             'contact.message.ph': 'Your message',
             'contact.submit': 'Send',
+            'contact.demoNotice': 'This form is a demo: your message was not sent. To get in touch, use one of the channels below.',
 
             'details.about.title': 'Personal insights',
             'details.about.p1': 'Beyond my professional routine in technology, I believe that continuous learning and creative activities are essential for solving complex problems efficiently.',
@@ -129,15 +128,14 @@ export const translations = {
             'details.about.btn': 'Back to homepage',
 
             'details.prof.title': 'Full-Stack Developer and Civil Police Officer',
-            'details.prof.p1': 'My professional path is marked by solid technical experience combined with a high level of commitment. I currently work as a <strong>Full Stack IT Specialist in the Civil Police infrastructure</strong>, designing robust systems, processing critical data flows and managing secure technical solutions.',
+            'details.prof.p1.before': 'My professional path is marked by solid technical experience combined with a high level of commitment. I currently work as a',
+            'details.prof.p1.highlight': 'Full Stack IT Specialist in the Civil Police infrastructure',
+            'details.prof.p1.after': ', designing robust systems, processing critical data flows and managing secure technical solutions.',
             'details.prof.p2': 'This unique experience, working in both software engineering and public service, brings a distinctive discipline, risk-assessment skills and a constant focus on security, stability and quality documentation. I can efficiently connect the front-end user experience with the robustness and reliability of back-end solutions.',
             'details.prof.stack.title': 'Core Technical Stack',
             'details.prof.stack.text': 'These are the technologies I use every day to build complete applications, from start to finish (end-to-end):',
             'details.prof.btn': 'Back Home',
 
-            'success.title': 'Thank You!',
-            'success.text': 'Your message has been sent successfully. <br>I will get back to you as soon as possible.',
-            'success.btn': 'Back to Portfolio'
         },
 
         /* ---------------------------------------------------------- ES */
@@ -155,7 +153,6 @@ export const translations = {
             'meta.index.desc': 'Portafolio de desarrollador Front-End. Desarrollador HTML, CSS, JavaScript y React.',
             'meta.about.title': 'Sobre mí | Más información',
             'meta.professional.title': 'Trayectoria Profesional | Full-Stack',
-            'meta.success.title': 'Mensaje enviado con éxito | Mário Cândido',
 
             'hero.title': 'Desarrollador Front-End',
             'hero.text': 'Construyendo software de forma responsiva, ágil y amigable para el usuario.',
@@ -188,6 +185,7 @@ export const translations = {
             'contact.message.label': 'Deja tu mensaje',
             'contact.message.ph': 'Tu mensaje',
             'contact.submit': 'Enviar',
+            'contact.demoNotice': 'Este formulario es una demostración: tu mensaje no fue enviado. Para contactarme, utiliza uno de los canales de abajo.',
 
             'details.about.title': 'Perspectivas personales',
             'details.about.p1': 'Más allá de mi rutina profesional en tecnología, creo que el aprendizaje continuo y las actividades creativas son fundamentales para resolver problemas complejos de forma eficiente.',
@@ -196,14 +194,13 @@ export const translations = {
             'details.about.btn': 'Volver a la página de inicio',
 
             'details.prof.title': 'Desarrollador Full-Stack y Oficial de la Policía Civil',
-            'details.prof.p1': 'Mi trayectoria profesional está marcada por una sólida experiencia técnica unida a un alto nivel de compromiso. Actualmente trabajo como <strong>Especialista Full Stack de TI en la infraestructura de la Policía Civil</strong>, diseñando sistemas robustos, procesando flujos de datos críticos y gestionando soluciones técnicas seguras.',
+            'details.prof.p1.before': 'Mi trayectoria profesional está marcada por una sólida experiencia técnica unida a un alto nivel de compromiso. Actualmente trabajo como',
+            'details.prof.p1.highlight': 'Especialista Full Stack de TI en la infraestructura de la Policía Civil',
+            'details.prof.p1.after': ', diseñando sistemas robustos, procesando flujos de datos críticos y gestionando soluciones técnicas seguras.',
             'details.prof.p2': 'Esta experiencia única, tanto en ingeniería de software como en el servicio público, aporta una disciplina diferenciada, capacidad de evaluación de riesgos y un enfoque constante en seguridad, estabilidad y documentación de calidad. Logro conectar de forma eficiente la experiencia de usuario en el front-end con la robustez y fiabilidad de las soluciones en el back-end.',
             'details.prof.stack.title': 'Stack Técnico Principal',
             'details.prof.stack.text': 'Estas son las tecnologías que utilizo a diario para desarrollar aplicaciones completas, de principio a fin (end-to-end):',
             'details.prof.btn': 'Volver al inicio',
 
-            'success.title': '¡Gracias!',
-            'success.text': 'Tu mensaje fue enviado con éxito. <br>Me pondré en contacto contigo lo antes posible.',
-            'success.btn': 'Volver al Portafolio'
         }
 };

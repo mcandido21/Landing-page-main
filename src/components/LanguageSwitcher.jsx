@@ -1,12 +1,12 @@
 import { LANGS } from '../i18n/translations.js';
 import { useLanguage } from '../context/LanguageContext.jsx';
 
-export default function LanguageSwitcher({ floating = false }) {
+export default function LanguageSwitcher() {
     const { language, setLanguage, t } = useLanguage();
 
     return (
         <div
-            className={`lang-switcher${floating ? ' lang-switcher--floating' : ''}`}
+            className="lang-switcher"
             role="group"
             aria-label={t('lang.group')}
         >

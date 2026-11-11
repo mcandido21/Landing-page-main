@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext.jsx';
 import Navbar from '../components/Navbar.jsx';
@@ -91,11 +92,11 @@ function Projects() {
 
 function Contact() {
     const { t } = useLanguage();
-    const navigate = useNavigate();
+    const [showDemoNotice, setShowDemoNotice] = useState(false);
 
     function handleSubmit(event) {
         event.preventDefault();
-        navigate('/success');
+        setShowDemoNotice(true);
     }
 
     return (
@@ -117,6 +118,12 @@ function Contact() {
 
                     <input type="submit" value={t('contact.submit')} />
                 </form>
+
+                {showDemoNotice && (
+                    <p className="form-notice" role="status" aria-live="polite">
+                        {t('contact.demoNotice')}
+                    </p>
+                )}
 
                 <div className="social-links">
                     <a

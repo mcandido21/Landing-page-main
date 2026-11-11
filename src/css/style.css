@@ -292,6 +292,16 @@ form input[type="submit"]:hover{
     background: #962d22;
 }
 
+.form-notice {
+    max-width: 600px;
+    margin: 20px auto 0;
+    padding: 14px 18px;
+    border: 1px solid rgba(255, 255, 255, .45);
+    border-radius: 10px;
+    line-height: 1.6;
+    text-align: left;
+}
+
 .social-links {
     margin-top: 40px;
     display: flex;
@@ -458,18 +468,6 @@ form input[type="submit"]:hover{
 .lang-btn:focus-visible {
     outline: 2px solid #c0392b;
     outline-offset: 3px;
-}
-
-/* Páginas sem navbar (ex.: success.html) */
-.lang-switcher--floating {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    background: #222;
-    padding: 6px;
-    border-radius: 8px;
-    margin-left: 0;
 }
 
 @media(max-width:768px){
